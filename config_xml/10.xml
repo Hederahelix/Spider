@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<web-site>
+  <web_config>
+    <webName_en>lncourt</webName_en>
+    <webName_cn>辽宁法院</webName_cn>
+    <sort_url>http://lnfy.chinacourt.org/cpws/</sort_url>
+    <last_Crawl_time>2013-09-09 11:20:46.524</last_Crawl_time>
+    <endpoint_strategy>EP_PlanA</endpoint_strategy>
+    <decrypt_strategy>Dy_PlanB</decrypt_strategy>
+    <decrypt_file>paperDecode.js</decrypt_file>
+    <area>辽宁</area> 
+  </web_config>
+  <SortPage>
+    <field name="sorturl">
+      <reg>d.add\([^,]*,[^,]*, '[^']*', '(more[^']*)', '[^']*', '[^']*', '[^']*', '[^']*'\);</reg>
+      <model>multi</model> 
+	  <group_num>1</group_num>
+      <group id="1">sorturl</group>
+    </field>
+  </SortPage>
+  <ListPage>
+    <field name="verdictkind">
+      <reg>&lt;option value='[^']*' selected&gt;([^&lt;]*)&lt;/option&gt;</reg>
+      <model value="1">single</model>
+	  <group_num>1</group_num>
+      <group id="1">verdictkind</group>
+    </field>
+    <field name="totalpage">
+      <reg>共&lt;font color="blue"&gt;(\d*)&lt;/font&gt;页</reg>
+      <model value="1">single</model>
+	  <group_num>1</group_num>
+      <group id="1">totalpage</group>
+    </field>
+    <field name="pageurl">
+      <reg>&lt;td class="td_line"&gt;&lt;a href="([^"]*)" target="_blank"&gt;[^&lt;]*&lt;/a&gt;&lt;/td&gt;</reg>
+      <model>multi</model> 
+	  <group_num>1</group_num>
+      <group id="1">pageurl</group>
+    </field>
+    <field name="currentpage">
+      <reg>第&lt;font color="blue"&gt;(\d*)&lt;/font&gt;页</reg>
+      <model value="1">single</model>
+	  <group_num>1</group_num>
+      <group id="1">currentpage</group>
+    </field>
+    <field name="nexturl">
+      <reg>&lt;a href="([^"]*)" title="下一页"&gt;</reg>
+      <model value="1">single</model>
+	  <group_num>1</group_num>
+      <group id="1">nexturl</group>
+    </field>
+  </ListPage>
+  <Page>
+    <field name="title">
+      <reg>&lt;!-- 标题 --&gt;([^&lt;]*)&lt;/FONT&gt;</reg>
+      <model value="1">single</model>
+	  <group_num>1</group_num>
+      <group id="1">title</group>
+    </field>
+    <field name="time">
+      <reg>&lt;FONT color=#cc0000&gt;([^&lt;]*)&lt;/FONT&gt;</reg>
+      <model value="1">single</model>
+	  <group_num>1</group_num>
+      <group id="1">time</group>
+    </field>
+    <field name="court">
+      <reg>&lt;!-- 法院--&gt;(.*?)&lt;/FONT&gt;</reg>
+      <model value="1">single</model>
+	  <group_num>1</group_num>
+      <group id="1">court</group>
+    </field>
+    <field name="verdictkind">
+      <reg>&lt;!--类型 --&gt;([^&lt;]*)&lt;/td&gt;</reg>
+      <model value="1">single</model>
+	  <group_num>1</group_num>
+      <group id="1">verdictkind</group>
+    </field>
+    <field name="number">
+      <reg>&lt;!--案件号 --&gt;([^&lt;]*)&lt;/td&gt;</reg>
+      <model value="1">single</model>
+	  <group_num>1</group_num>
+      <group id="1">number</group>
+    </field>
+    <field name="content">
+      <reg>&lt;div class="content"&gt;(.*)&lt;/div&gt;</reg>
+      <model value="1">single</model>
+	  <group_num>1</group_num>
+      <group id="1">content</group>
+    </field>
+  </Page>
+</web-site>

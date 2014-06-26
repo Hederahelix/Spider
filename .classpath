@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="lib" path="ext/antlr-2.7.4.jar"/>
+	<classpathentry kind="lib" path="ext/cpdetector_1.0.10.jar"/>
+	<classpathentry kind="lib" path="ext/dom4j-1.6.1.jar"/>
+	<classpathentry kind="lib" path="ext/jedis-2.1.0.jar"/>
+	<classpathentry kind="lib" path="ext/jsoup-1.7.2.jar"/>
+	<classpathentry kind="lib" path="ext/mysql-connector-java-5.1.7-bin.jar"/>
+	<classpathentry kind="lib" path="ext/chardet-1.0.jar"/>
+	<classpathentry kind="lib" path="ext/commons-lang.jar"/>
+	<classpathentry kind="lib" path="ext/lombok.jar"/>
+	<classpathentry kind="lib" path="ext/log4j-api-2.0-beta9.jar"/>
+	<classpathentry kind="lib" path="ext/log4j-core-2.0-beta9.jar"/>
+	<classpathentry kind="lib" path="D:/Workspaces/Spider 3.1/ext/commons-pool-1.6.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

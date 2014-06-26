@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-site> 
+	<web_config>
+		<webName_en>sdcourt</webName_en>  
+		<webName_cn>山东法院</webName_cn>   
+		<sort_url>http://sdfy.chinacourt.org/paper.shtml</sort_url>
+		<last_Crawl_time>2013-09-09 11:20:46.524</last_Crawl_time>  
+		<endpoint_strategy>EP_PlanB</endpoint_strategy>  <!--循环停止方式-->
+		<decrypt_strategy>Dy_PlanB</decrypt_strategy>  <!--解密的策略-->
+		<decrypt_file>paperDecode.js</decrypt_file>  <!--解密文件位置-->
+		<area>山东</area>   
+	</web_config>
+	<SortPage>
+		<field name="sorturl"> 
+			<reg>&lt;li&gt;\s*&lt;a\s*href="([^"]+?paper_mid[^"]*)"</reg> <!-- 去掉提取到的值中，不符合条件的开始字符 格式:regex-->
+			<model>multi</model>
+			<group_num>1</group_num>      <!-- 正则表达式有几个需要提取的组-->
+			<group id="1">sorturl</group> <!-- 第一个组 是content-->
+		</field>
+	</SortPage>
+	<ListPage>
+		<field name="verdictkind"> 
+			  <reg>class="yui3-u-5-6"[^&lt;]*&lt;h2&gt;([^&lt;]+)&lt;/h2&gt;</reg> <!-- 去掉提取到的值中，不符合条件的开始字符 格式:regex-->
+			  <model value="1">single</model> <!-- 第一个组 是content-->
+			  <group_num>1</group_num>      <!-- 正则表达式有几个需要提取的组-->
+			  <group id="1">verdictkind</group> <!-- 第一个组 是content-->
+		</field>   
+		<!-- <field name="totalpage"> 
+			  <reg>&lt;a\s*href="(/paper/more/paper_mid.*?/page/(\d+)\.shtml)"&gt;尾页</reg> 去掉提取到的值中，不符合条件的开始字符 格式:regex
+			  <model value="1">single</model> 第一次就是所需目标
+			  <group_num>1</group_num>      正则表达式有几个需要提取的组
+			  <group id="1">totalpage</group> 第一个组 是content
+		</field> --> 	
+		<field name="pageurl"> 
+			  <reg>href='(/paper/detail[^']*)'</reg> <!-- 去掉提取到的值中，不符合条件的开始字符 格式:regex-->
+			  <model>multi</model> <!-- 需多次匹配-->
+			  <group_num>1</group_num>      <!-- 正则表达式有几个需要提取的组-->
+			  <group id="1">pageurl</group> <!-- 第一个组 是content-->
+		</field>
+		<!-- <field name="currentpage"> 
+			  <reg>class="current"&gt;(\d+)&lt;/span&gt;</reg> 去掉提取到的值中，不符合条件的开始字符 格式:regex
+			  <model value="1">single</model> 第一个组 是content
+			  <group_num>1</group_num>      正则表达式有几个需要提取的组
+			  <group id="1">currentpage</group> 第一个组 是content
+		</field> -->
+		<field name="nexturl"> 
+			  <reg>href="([^"]+)"&gt;下一页&lt;/a&gt;</reg> <!-- 去掉提取到的值中，不符合条件的开始字符 格式:regex-->
+			  <model value="1">single</model> <!-- 第一个组 是content-->
+			  <group_num>1</group_num>      <!-- 正则表达式有几个需要提取的组-->
+			  <group id="1">nexturl</group> <!-- 第一个组 是content-->
+		</field>
+	</ListPage>
+	<Page>
+		<field name="title"> 
+			<reg>&lt;ul&gt;[\s]*&lt;li[\s]*class="title"&gt;([^&lt;]+)&lt;/li&gt;</reg> <!-- 去掉提取到的值中，不符合条件的开始字符 格式:regex-->
+			<model value="1">single</model> <!-- 第一个组 是content-->
+			<group_num>1</group_num>      <!-- 正则表达式有几个需要提取的组-->
+			<group id="1">title</group> <!-- 第一个组 是content-->
+		</field>
+		<field name="time"> 
+			<reg>class="time"&gt;[\s]*提交日期[^&gt;]*&gt;[\s]*([^&lt;]+)[\s]*&lt;</reg> <!-- 去掉提取到的值中，不符合条件的开始字符 格式:regex-->
+			<model value="1">single</model> <!-- 第一个组 是content-->
+			<group_num>1</group_num>      <!-- 正则表达式有几个需要提取的组-->
+			<group id="1">time</group> <!-- 第一个组 是content-->
+		</field>
+		<field name="court"> 
+			<reg>class="title"&gt;[\s]*&lt;b&gt;([^&lt;]+)&lt;/b&gt;</reg> <!-- 去掉提取到的值中，不符合条件的开始字符 格式:regex-->
+			<model value="1">single</model> <!-- 第一个组 是content-->
+			<group_num>1</group_num>      <!-- 正则表达式有几个需要提取的组-->
+			<group id="1">court</group> <!-- 第一个组 是content-->
+		</field>
+		<field name="verdictkind"> 
+			<reg>class="type"&gt;([^&lt;]+)&lt;/li&gt;</reg> <!-- 去掉提取到的值中，不符合条件的开始字符 格式:regex-->
+			<model value="1">single</model> <!-- 第一个组 是content-->
+			<group_num>1</group_num>      <!-- 正则表达式有几个需要提取的组-->
+			<group id="1">verdictkind</group> <!-- 第一个组 是content-->
+		</field>
+		<field name="number"> 
+			<reg>class="number"&gt;([^&lt;]+)&lt;/li&gt;</reg> <!-- 去掉提取到的值中，不符合条件的开始字符 格式:regex-->
+			<model value="1">single</model> <!-- 第一个组 是content-->
+			<group_num>1</group_num>      <!-- 正则表达式有几个需要提取的组-->
+			<group id="1">number</group> <!-- 第一个组 是content-->
+		</field>
+		<field name="content"> 
+			<reg>&lt;div&gt;[\s]*(&lt;p&gt;[^\cc]+?)&lt;/div&gt;</reg> <!-- 去掉提取到的值中，不符合条件的开始字符 格式:regex-->
+			<model value="1">single</model> <!-- 第一个组 是content-->
+			<group_num>1</group_num>      <!-- 正则表达式有几个需要提取的组-->
+			<group id="1">content</group> <!-- 第一个组 是content-->
+		</field>
+	</Page>
+</web-site>

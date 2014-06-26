@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+elementFormDefault="qualified" attributeFormDefault="qualified">
+        <xsd:element name="order">
+           <xsd:complexType>
+             <xsd:sequence>
+                <xsd:element name="orderItem" type="xsd:string"  maxOccurs="10"/>
+             </xsd:sequence>
+          </xsd:complexType>
+        </xsd:element>
+</xsd:schema>
+

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config> 
+	<web_config>
+		<thread_num>20</thread_num>  <!-- 线程数 --> 
+		<start_time>24:00</start_time>  <!-- 爬取开始时间 --> 
+		<log_path>log/log.txt</log_path>  <!-- 日志位置 --> 
+		<pro_path>pro/</pro_path>  <!-- 日志位置 --> 
+		<decrypt_path>lib/</decrypt_path>  <!--解密文件位置-->
+		<xml_path>config_xml/</xml_path>  <!-- 配置位置 --> 
+	</web_config>
+	<db_config>
+		<driver_name>com.mysql.jdbc.Driver</driver_name>
+		<db_url>jdbc:mysql://localhost:3306/panjueshu?characterEncoding=utf8</db_url>
+		<username>root</username>
+		<password>root</password>
+	</db_config>  <!-- 日志位置 --> 
+</config>
+	
+	 
